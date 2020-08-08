@@ -75,9 +75,18 @@ WSGI_APPLICATION = 'desafio.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nave',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -108,7 +117,7 @@ LOCALE_NAME = 'pt_BR'
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC-0300'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
