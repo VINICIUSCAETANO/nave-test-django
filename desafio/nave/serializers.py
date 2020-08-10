@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'name', 'password', 'added_by', 'navers']
+        fields = ['id', 'name', 'added_by', 'navers']
 
 class NaverSerializer(serializers.ModelSerializer):
     class Meta:
