@@ -18,10 +18,16 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework.routers import url
+from rest_framework import routers
 
+# usar routers para implementar os padrões REST
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'navers', views.NaverViewSet)
+router.register(r'projects', views.ProjectViewSet)
 
 urlpatterns = [
-    path(r'users/', views.get_users),
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
     url(r'^api-token-auth/', obtain_jwt_token),
 ]
